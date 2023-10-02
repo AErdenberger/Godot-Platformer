@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://6br1snsewhvm"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_nry2s"]
+[ext_resource type="Texture2D" uid="uid://cjfbasl7eygp0" path="res://Godot 2D Platformer - Assets/Sprites/Characters/character_0002.png" id="2_aew6f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nqqta"]
+height = 28.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_h0mmt"]
+font_size = 48
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(0, -33)
+script = ExtResource("1_nry2s")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_aew6f")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_nqqta")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(0, 33)
+zoom = Vector2(3, 3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score Text" type="Label" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 181.0
+offset_bottom = 66.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_h0mmt")

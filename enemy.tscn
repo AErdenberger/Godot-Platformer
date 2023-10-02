@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8ni2kpo84gei"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_wkrcr"]
+[ext_resource type="Texture2D" uid="uid://dpfw6ck4mow1p" path="res://Godot 2D Platformer - Assets/Sprites/Characters/character_0024.png" id="2_onm6q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hjlru"]
+radius = 8.0
+
+[node name="Enemy" type="Area2D"]
+position = Vector2(71, 12)
+script = ExtResource("1_wkrcr")
+move_dir = Vector2(0, -50)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_onm6q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hjlru")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
